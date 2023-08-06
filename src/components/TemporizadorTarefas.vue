@@ -20,6 +20,7 @@ import { defineComponent } from "vue";
 import CronometroTarefas from '../components/CronometroTarefas.vue'
 export default defineComponent({
   name: "TemporizadorTarefas",
+  emits: ['aoTemporizadorFinalizado'],
   components: {
     CronometroTarefas
   },
@@ -40,6 +41,8 @@ export default defineComponent({
     finalizar() {
         this.cronometroRodando = false
       clearInterval(this.cronometro)
+      this.$emit('aoTemporizadorFinalizado', this.tempoEmSegundos)
+      this.tempoEmSegundos = 0
     },
   },
 });
