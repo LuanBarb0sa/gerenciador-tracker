@@ -1,5 +1,5 @@
 <template>
-  <div class="box has-text-weigth-bold">
+  <div class="box has-text-weigth-bold" :style="estilos">
     <slot></slot>
   </div>
 </template>
@@ -8,10 +8,12 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "BoxTarefa",
+  data () {
+    return {
+      estilos: {
+        backgroundColor: '#faf0ca'
+      }
+    }
+  }
 });
 </script>
-<style scoped>
-.box {
-  background: #faf0ca;
-}
-</style>
